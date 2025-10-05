@@ -3,6 +3,9 @@ package com.project.cafeemployeemanagement.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.project.cafeemployeemanagement.util.CustomDateDeserialize;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +14,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "roster")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Roster {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,8 +58,6 @@ public class Roster {
     @Version
     private int version;
 
-    public Roster() {}
-
     public Roster(Date fromDate, Date toDate) {
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -67,70 +71,6 @@ public class Roster {
         this.createdDate = createdDate;
         this.shifts = shifts;
         this.isPublished = false;
-    }
-
-    public Date getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public Date getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public boolean isPublished() {
-        return isPublished;
-    }
-
-    public void setPublished(boolean published) {
-        isPublished = published;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Shift> getShiftList() {
-        return shifts;
-    }
-
-    public void setShiftList(List<Shift> shiftList) {
-        this.shifts = shiftList;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
     }
 
     @Override

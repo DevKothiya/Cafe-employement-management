@@ -1,5 +1,9 @@
 package com.project.cafeemployeemanagement.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,6 +11,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "shift")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,52 +33,10 @@ public class Shift {
 
     private String note;
 
-    public Shift() {}
-
     public Shift(Roster roster, Date date, String note) {
         this.roster = roster;
         this.date = date;
         this.note = note;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Roster getRoster() {
-        return roster;
-    }
-
-    public void setRoster(Roster roster) {
-        this.roster = roster;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public List<EmployeeShift> getEmployeeShifts() {
-        return employeeShifts;
-    }
-
-    public void setEmployeeShifts(List<EmployeeShift> employeeShifts) {
-        this.employeeShifts = employeeShifts;
     }
 
     public void addEmployeeShift(EmployeeShift employeeShift, Employee employee) {

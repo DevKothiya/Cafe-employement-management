@@ -53,7 +53,7 @@ public class RosterService {
             });
             shifts.add(newShift);
         });
-        newRoster.setShiftList(shifts);
+        newRoster.setShifts(shifts);
         newRoster.setEmployee(shopOwner);
         rosterRepository.save(newRoster);
         return true;

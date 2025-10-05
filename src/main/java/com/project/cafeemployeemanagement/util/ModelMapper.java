@@ -17,7 +17,7 @@ public class ModelMapper {
         response.setToDate(roster.getToDate());
         response.setId(roster.getId());
 
-        roster.getShiftList().forEach(shift -> {
+        roster.getShifts().forEach(shift -> {
             for (EmployeeShift employeeShift : shift.getEmployeeShifts()) {
                 ShiftResponse shiftResponse = new ShiftResponse();
                 shiftResponse.setId(employeeShift.getId());
@@ -76,10 +76,10 @@ public class ModelMapper {
                                 employee.getFirstName(),
                                 employee.getLastName(),
                                 employee.getEmail(),
+                                employee.getShopOwnerId(),
                                 employee.getJoinedDate(),
                                 employee.getEmployeeType().getType().name(),
                                 employee.getRole().getName().name(),
-                                employee.getShopOwnerId(),
                                 employee.getPhoneNumber(),
                                 employee.isResigned())
                 ).collect(Collectors.toList());

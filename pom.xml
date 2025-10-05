@@ -70,9 +70,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Java 6 = JAX-B Version 2.0   -->
-		<!-- Java 7 = JAX-B Version 2.2.3 -->
-		<!-- Java 8 = JAX-B Version 2.2.8 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>

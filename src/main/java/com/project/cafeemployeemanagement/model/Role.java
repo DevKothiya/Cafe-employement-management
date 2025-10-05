@@ -1,5 +1,7 @@
 package com.project.cafeemployeemanagement.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -8,6 +10,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "role")
+@Data
+@NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,26 +37,9 @@ public class Role {
         employee.setRole(null);
     }
 
-    public Role() {}
-
     public Role(RoleName name) {
         this.name = name;
     }
 
-    public Long getID() {
-        return id;
-    }
-
-    public void setID(Long id) {
-        this.id = id;
-    }
-
-    public RoleName getName() {
-        return name;
-    }
-
-    public void setName(RoleName name) {
-        this.name = name;
-    }
 
 }

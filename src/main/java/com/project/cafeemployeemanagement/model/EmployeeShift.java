@@ -1,6 +1,9 @@
 package com.project.cafeemployeemanagement.model;
 
 import com.project.cafeemployeemanagement.util.utils;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +11,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "employee_shift")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmployeeShift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,76 +37,10 @@ public class EmployeeShift {
 
     private String note;
 
-    public EmployeeShift() {}
-
     public EmployeeShift(Date start, Date end, String note) {
         this.start = start;
         this.end = end;
         this.note = note;
-    }
-
-    public EmployeeShift(Employee employee, Shift shift, Date start, Date end, String note) {
-        this.employee = employee;
-        this.shift = shift;
-        this.start = start;
-        this.end = end;
-        this.note = note;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Shift getShift() {
-        return shift;
-    }
-
-    public void setShift(Shift shift) {
-        this.shift = shift;
-    }
-
-    public Date getStart() {
-        return start;
-    }
-
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    public Date getEnd() {
-        return end;
-    }
-
-    public void setEnd(Date end) {
-        this.end = end;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public float getWorkedHours() {
-        return utils.getNumberOfDifferentHoursBetweenTwoWorkingHours(this.start, this.end);
-    }
-
-    public void setWorkedHours(float workedHours) {
-        this.workedHours = workedHours;
     }
 
     @Override

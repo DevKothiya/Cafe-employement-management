@@ -1,5 +1,8 @@
 package com.project.cafeemployeemanagement.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -8,6 +11,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "employee_type")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmployeeType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,26 +41,9 @@ public class EmployeeType {
         employee.setEmployeeType(null);
     }
 
-    public EmployeeType() {}
-
     public EmployeeType(EmployeeTypeValues values) {
         this.type = values;
         this.hourlyWorkPermit = values.equals(EmployeeTypeValues.PART_TIME_STUDENT) ? 20 : 0;
     }
 
-    public EmployeeTypeValues getType() {
-        return type;
-    }
-
-    public void setType(EmployeeTypeValues type) {
-        this.type = type;
-    }
-
-    public int getHourlyWorkPermit() {
-        return hourlyWorkPermit;
-    }
-
-    public void setHourlyWorkPermit(int hourlyWorkPermit) {
-        this.hourlyWorkPermit = hourlyWorkPermit;
-    }
 }

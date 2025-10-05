@@ -42,13 +42,13 @@ public class EmployeeController {
                         currentUser.getFirstName(),
                         currentUser.getLastName(),
                         currentUser.getEmail(),
+                        currentUser.getShopOwnerId(),
                         currentUser.getJoinedDate(),
                         currentUser.getType(),
                         currentUser.getRole(),
-                        currentUser.getShopOwnerId(),
                         currentUser.getPhoneNumber(),
                         currentUser.isResigned()
-                );
+                                );
         return employeeResponse;
     }
 

@@ -1,15 +1,11 @@
 package com.project.cafeemployeemanagement.payload;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class ResignEmployeeRequest {
     private List<Long> employeesIdList;
 
-    public List<Long> getEmployeesIdList() {
-        return employeesIdList;
-    }
-
-    public void setEmployeesIdList(List<Long> employeesIdList) {
-        this.employeesIdList = employeesIdList;
-    }
 }

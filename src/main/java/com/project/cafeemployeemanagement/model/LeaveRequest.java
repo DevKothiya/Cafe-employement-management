@@ -2,12 +2,18 @@ package com.project.cafeemployeemanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.cafeemployeemanagement.util.utils;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name="leave_request")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LeaveRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,76 +46,6 @@ public class LeaveRequest {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedDate;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public Date getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
-    }
-
-    public LeaveStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(LeaveStatus leaveStatus) { this.status = leaveStatus; }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Long getUpdatedManagerId() {
-        return updatedManagerId;
-    }
-
-    public void setUpdatedManagerId(Long updatedManagerId) {
-        this.updatedManagerId = updatedManagerId;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
-    }
 
     public long getNumberOfOffDates() {
         return utils.getNumberOfDifferentDatesBetweenTwoLeaveDates(this.getFromDate(), this.getToDate());
